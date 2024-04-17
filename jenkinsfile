@@ -1,0 +1,13 @@
+pipeline{
+    agent{
+        node{
+            label 'agent-java'
+        }
+    }
+    stages{
+        stage("build"){
+        sh 'echo ========build started======='
+        sh 'mvn clean install -Dmaven.test.skip=true'
+    }
+    }
+}
